@@ -11,7 +11,6 @@ export class ListManagerComponent implements OnInit {
 
   constructor() { }
 
-  title = 'Kate';
   todoList: TodoItem[] = [
     {title: 'install NodeJS', completed: false},
     {title: 'install Angular CLI'},
