@@ -3,5 +3,5 @@
   type="text" 
   autocomplete="off" 
   [value]="title" 
-  (keyup.enter)="submitValue(inputElementRef)">
+  (keyup.enter)="submitValue(inputElementRef.value)">
 <button (click)="submitValue(inputElementRef.value)">Save</button>
