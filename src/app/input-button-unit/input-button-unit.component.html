@@ -1,0 +1,7 @@
+<input 
+  #inputElementRef 
+  type="text" 
+  autocomplete="off" 
+  [value]="title" 
+  (keyup.enter)="submitValue(inputElementRef)">
+<button (click)="submitValue(inputElementRef.value)">Save</button>
