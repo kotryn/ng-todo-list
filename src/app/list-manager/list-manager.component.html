@@ -5,7 +5,9 @@
     <li *ngFor="let todoItem of todoList">
       <app-todo-item 
         [item]="todoItem"
-        (remove)="removeItem($event)">
+        (remove)="removeItem($event)"
+        (check)="checkItem($event)"
+        >
       </app-todo-item>
     </li>
   </ul>

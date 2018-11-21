@@ -14,8 +14,17 @@ export class TodoItemComponent implements OnInit {
 
   @Output() remove = new EventEmitter<TodoItem>();
 
+  @Output() check = new EventEmitter<any>();
+
   removeItem() {
     this.remove.emit(this.item);
+  }
+
+  checkItem() {
+    this.check.emit({
+      item: this.item, 
+      isChecked: {completed: !this.item.completed}
+    });
   }
 
   ngOnInit() {
