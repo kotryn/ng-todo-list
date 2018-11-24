@@ -1,8 +1,22 @@
 <div class="todo-item">
   <input #checkbox type="checkbox" class="todo-checkbox" (click)="checkItem()" [checked]="item.completed">
-  <div class="todo-title" [ngClass]="item.completed && 'strikethrough'">
-    {{ item.title }}
-  </div>
+
+  <div *ngIf="focus; then editItem; else showItem"></div>
+
+  <ng-template #editItem>
+    <app-input-button-unit 
+    (submit)="updateItem($event)"
+    [item]="item.title"
+    ></app-input-button-unit>
+  </ng-template>
+
+  <ng-template #showItem>
+    <div class="todo-title" [ngClass]="{'strikethrough': item.completed}">
+      {{ item.title }}
+    </div>
+  </ng-template>
+
+
   <button class="btn btn-red" (click)="removeItem()">
     remove
   </button>

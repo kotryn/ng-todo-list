@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { TodoItem } from '../interfaces/todo-item'
 
 @Component({
   selector: 'app-input-button-unit',
@@ -7,20 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class InputButtonUnitComponent implements OnInit {
 
-  title = ''
+  @Input() item: string;
+  
+  title = '';
 
   submitValue(newTitle: string): void {
     this.submit.emit(newTitle);
   }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   @Output() submit = new EventEmitter<string>();
 
   ngOnInit() {
-
+    console.log(this.item, "a")
+    this.title = this.item;
   }
 
 }
