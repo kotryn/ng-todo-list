@@ -7,5 +7,5 @@ import { TodoItem } from './interfaces/todo-item';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'Angular';
+  title = 'Todo List';
 }

@@ -10,7 +10,7 @@ export class TodoItemComponent implements OnInit {
 
   constructor() { }
 
-  focus = true;
+  focus = false;
 
   @Input() item: TodoItem;
 
@@ -18,7 +18,7 @@ export class TodoItemComponent implements OnInit {
 
   @Output() check = new EventEmitter<any>();
 
-  @Output() update = new EventEmitter<string>();
+  @Output() update = new EventEmitter<any>();
 
   removeItem() {
     this.remove.emit(this.item);
@@ -32,8 +32,10 @@ export class TodoItemComponent implements OnInit {
   }
 
   updateItem(title: string) {
-    console.log(title)
-    //this.update.emit(title)
+    this.update.emit({
+      item: this.item, 
+      title: {title: title}
+    });
   }
 
   ngOnInit() {
